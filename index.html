@@ -232,7 +232,7 @@
             };
             document.querySelectorAll('input[type="radio"]').forEach(x => {
                 if (x.checked) {
-                    const key = x.value == 0 ? 'No' : matrix[x.id];
+                    const key = x.value == 0 ? 'No' : matrix[x.name];
                     result[key] += 1;
                 }
             });
@@ -245,13 +245,13 @@
             const li = document.createElement('LI');
             li.innerHTML = `
             <div class="form-check" style="display: inline-block;margin-bottom: 20px">
-                <input class="form-check-input" id="${i+1}" type="radio" name="${i+1}" onchange="update(${i+1})" value="1" />
-                <label class="form-check-label" for="${i+1}">Да</label>
+                <input class="form-check-input" id="yes-${i+1}" type="radio" name="${i+1}" onchange="update(${i+1})" value="1" />
+                <label class="form-check-label" for="yes-${i+1}">Да</label>
             </div>
             &nbsp;&nbsp;
             <div class="form-check" style="display: inline-block;margin-bottom: 20px">
-                <input class="form-check-input" id="${i+1}" type="radio" name="${i+1}" onchange="update(${i+1})" value="0"/>
-                <label class="form-check-label" for="${i+1}">Нет</label>
+                <input class="form-check-input" id="no-${i+1}" type="radio" name="${i+1}" onchange="update(${i+1})" value="0"/>
+                <label class="form-check-label" for="no-${i+1}">Нет</label>
             </div>
             &nbsp; - &nbsp;${q}`;
             dom.appendChild(li);
